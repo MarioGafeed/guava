@@ -7,7 +7,7 @@ use App\Http\Requests\WorkplacesRequest;
 use App\Models\Workplace;
 use Illuminate\Http\Request;
 
-class WorkPlaceController extends Controller
+class WorkplaceController extends Controller
 {
     // use Authorizable;
     private $viewPath = 'backend.workplaces';
