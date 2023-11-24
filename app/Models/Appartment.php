@@ -16,7 +16,7 @@ class Appartment extends Model
 
     public function place()
     {
-        return $this->belongsTo('App\Models\place', 'place_id');
+        return $this->belongsTo('App\Models\Place', 'place_id');
     }
 
     public function bookings()
