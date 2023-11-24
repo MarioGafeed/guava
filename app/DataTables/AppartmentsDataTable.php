@@ -26,7 +26,8 @@ class AppartmentsDataTable extends DataTable
                     ';
                 }
             })
-            
+            ->addColumn('reservedBedsStats', 'backend.appartments.buttons.reservedBedsStats')
+            ->addColumn('holdBedsStats', 'backend.appartments.buttons.holdBedsStats')
             ->addColumn('toggle', 'backend.appartments.buttons.toggle')
             ->addColumn('book', 'backend.appartments.buttons.book')
             ->addColumn('show', 'backend.appartments.buttons.show')
@@ -82,7 +83,22 @@ class AppartmentsDataTable extends DataTable
                 'orderable' => true,
                 'width' => '100px',
             ],
-            
+            [
+                'name' => 'reservedBedsStats',
+                'data' => 'reservedBedsStats',
+                'title' => trans('main.reservedBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
+            [
+                'name' => 'holdBedsStats',
+                'data' => 'holdBedsStats',
+                'title' => trans('main.holdBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
             [
                 'name' => 'place.name',
                 'data' => 'place.name',
