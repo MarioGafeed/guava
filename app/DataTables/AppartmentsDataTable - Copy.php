@@ -26,7 +26,8 @@ class AppartmentsDataTable extends DataTable
                     ';
                 }
             })
-            
+            ->addColumn('reservedBedsStats', 'backend.appartments.buttons.reservedBedsStats')
+            ->addColumn('holdBedsStats', 'backend.appartments.buttons.holdBedsStats')
             ->addColumn('toggle', 'backend.appartments.buttons.toggle')
             ->addColumn('book', 'backend.appartments.buttons.book')
             ->addColumn('show', 'backend.appartments.buttons.show')
@@ -37,7 +38,7 @@ class AppartmentsDataTable extends DataTable
 
     public function query(Appartment $model)
     {
-        $query = Appartment::query()->select('appartments.*');
+        $query = Appartment::query()->with('place')->select('appartments.*');
 
         return $this->applyScopes($query);
     }
@@ -82,8 +83,30 @@ class AppartmentsDataTable extends DataTable
                 'orderable' => true,
                 'width' => '100px',
             ],
-            
-            
+            [
+                'name' => 'reservedBedsStats',
+                'data' => 'reservedBedsStats',
+                'title' => trans('main.reservedBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
+            [
+                'name' => 'holdBedsStats',
+                'data' => 'holdBedsStats',
+                'title' => trans('main.holdBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
+            [
+                'name' => 'place.name',
+                'data' => 'place.name',
+                'title' => trans('main.place'),
+                'searchable' => true,
+                'orderable' => true,
+                'width' => '150px',
+            ],
             [
                 'name' => 'appartments.active',
                 'data' => 'is_active',
