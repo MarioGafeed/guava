@@ -37,7 +37,7 @@ class AppartmentsDataTable extends DataTable
 
     public function query(Appartment $model)
     {
-        $query = Appartment::query()->select('appartments.*');
+        $query = Appartment::query()->with('place')->select('appartments.*');
 
         return $this->applyScopes($query);
     }
@@ -83,7 +83,14 @@ class AppartmentsDataTable extends DataTable
                 'width' => '100px',
             ],
             
-            
+            [
+                'name' => 'place.name',
+                'data' => 'place.name',
+                'title' => trans('main.place'),
+                'searchable' => true,
+                'orderable' => true,
+                'width' => '150px',
+            ],
             [
                 'name' => 'appartments.active',
                 'data' => 'is_active',
