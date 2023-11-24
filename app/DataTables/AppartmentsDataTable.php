@@ -15,21 +15,7 @@ class AppartmentsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('checkbox', '<input type="checkbox" class="selected_data" name="selected_data[]" value="{{ $id }}">')
-            ->addColumn('is_active', function ($model) {
-                if ($model->active == 1) {
-                    return '
-                        <span style="padding: 1px 6px;" class="label lable-sm label-success">'.trans('main.yes').'</span>
-                            ';
-                } else {
-                    return '
-                        <span style="padding: 1px 6px;" class="label lable-sm label-danger">'.trans('main.no').'</span>
-                    ';
-                }
-            })
-            ->addColumn('reservedBedsStats', 'backend.appartments.buttons.reservedBedsStats')
-            ->addColumn('holdBedsStats', 'backend.appartments.buttons.holdBedsStats')
-            ->addColumn('toggle', 'backend.appartments.buttons.toggle')
-            ->addColumn('book', 'backend.appartments.buttons.book')
+            
             ->addColumn('show', 'backend.appartments.buttons.show')
             ->addColumn('edit', 'backend.appartments.buttons.edit')
             ->addColumn('delete', 'backend.appartments.buttons.delete')
@@ -83,7 +69,22 @@ class AppartmentsDataTable extends DataTable
                 'orderable' => true,
                 'width' => '100px',
             ],
-            
+            [
+                'name' => 'reservedBedsStats',
+                'data' => 'reservedBedsStats',
+                'title' => trans('main.reservedBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
+            [
+                'name' => 'holdBedsStats',
+                'data' => 'holdBedsStats',
+                'title' => trans('main.holdBedsStats'),
+                'searchable' => false,
+                'orderable' => false,
+                'width' => '100px',
+            ],
             [
                 'name' => 'place.name',
                 'data' => 'place.name',
