@@ -83,22 +83,7 @@ class AppartmentsDataTable extends DataTable
                 'orderable' => true,
                 'width' => '100px',
             ],
-            [
-                'name' => 'reservedBedsStats',
-                'data' => 'reservedBedsStats',
-                'title' => trans('main.reservedBedsStats'),
-                'searchable' => false,
-                'orderable' => false,
-                'width' => '100px',
-            ],
-            [
-                'name' => 'holdBedsStats',
-                'data' => 'holdBedsStats',
-                'title' => trans('main.holdBedsStats'),
-                'searchable' => false,
-                'orderable' => false,
-                'width' => '100px',
-            ],
+            
             [
                 'name' => 'place.name',
                 'data' => 'place.name',
